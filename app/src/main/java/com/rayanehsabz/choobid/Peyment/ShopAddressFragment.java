@@ -272,7 +272,6 @@ public class ShopAddressFragment extends Fragment {
 
             adapter.notifyDataSetChanged();
         } catch (Exception e) {
-            Log.e("Tag" , e.toString());
         }
     }
     private class InvoiceTask extends AsyncTask
@@ -303,7 +302,7 @@ public class ShopAddressFragment extends Fragment {
             nameValuePairs.add(new BasicNameValuePair("mobile", params[14]));
             nameValuePairs.add(new BasicNameValuePair("phone", params[15]));
 
-            httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/create-invoice/");
+            httpPost = new HttpPost(AppVariables.getServerAddress() + "create-invoice/");
 
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -317,7 +316,6 @@ public class ShopAddressFragment extends Fragment {
                 HttpResponse response = httpClient.execute(httpPost);
                 StatusLine statusLine = response.getStatusLine();
                 int statusCode = statusLine.getStatusCode();
-//                Log.e("JSON", String.valueOf(statusCode));
                 if (statusCode > -1) {
                     HttpEntity entity = response.getEntity();
                     InputStream inputStream = entity.getContent();
@@ -329,12 +327,9 @@ public class ShopAddressFragment extends Fragment {
                     }
                     inputStream.close();
                 } else {
-//                    Log.d("JSON", "Failed to download file");
                 }
             } catch (Exception e) {
-                //Log.d("readJSONFeed", e.getLocalizedMessage());
             }
-//        	Log.e("calback", stringBuilder.toString());
             return stringBuilder.toString();
         }
 
@@ -344,7 +339,6 @@ public class ShopAddressFragment extends Fragment {
 
 
                 JSONObject jsonObject = new JSONObject(result);
-                Log.e("invoice", result);
                 if (jsonObject.has("invoiceId")) {
 
                     ((BuyProductActivity) getActivity()).ShopeDetail.invoiceId = jsonObject.getLong("invoiceId");
@@ -356,7 +350,6 @@ public class ShopAddressFragment extends Fragment {
 
             } catch (Exception e) {
 
-                Log.e("Tag", " ---> " + e);
             }
 
 
@@ -427,7 +420,6 @@ public class ShopAddressFragment extends Fragment {
 
                             ((BuyProductActivity) context).ShopeDetail.city = db.getCityCode(ss);
                             cityCode = ((BuyProductActivity) context).ShopeDetail.city;
-                            Log.e("Tagsad", " ---> " + ((BuyProductActivity) context).ShopeDetail.city);
 
                         }
                         textView.setText(ss);
@@ -448,7 +440,7 @@ public class ShopAddressFragment extends Fragment {
         adapter.notifyDataSetChanged();
 
         new AddressTask().execute(
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-addresses/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
+                AppVariables.getServerAddress() + "get-addresses/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
         );
 
     }

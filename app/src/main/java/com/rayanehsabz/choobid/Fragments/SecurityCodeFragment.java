@@ -99,7 +99,6 @@ public class SecurityCodeFragment extends Fragment {
 
 
                         ((TextView) buy.findViewById(R.id.nbT)).setText(String.format(getActivity().getResources().getString(R.string.sendSec), ((LoginActivity) getActivity()).mobNum));
-                       Log.e("Mobno" , ((LoginActivity) getActivity()).mobNum + "");
                         ((Button) buy.findViewById(R.id.buy)).setText("ارسال");
                         ((Button) buy.findViewById(R.id.buy)).setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -107,7 +106,7 @@ public class SecurityCodeFragment extends Fragment {
                                 ((TextView) rootView.findViewById(R.id.timeS)).setText(getActivity().getResources().getString(R.string.wait));
                                 new ReadSeccCodeJSONFeedTask().execute(
 
-                                        AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/re-send-seccode/mobno/" + CalendarTool.getCoded(((LoginActivity) getActivity()).mobNum)
+                                        AppVariables.getServerAddress() + "re-send-seccode/mobno/" + CalendarTool.getCoded(((LoginActivity) getActivity()).mobNum)
                                 );
 
                                 buy.dismiss();
@@ -130,9 +129,8 @@ public class SecurityCodeFragment extends Fragment {
         };
         new ReadSeccCodeJSONFeedTask().execute(
 
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/send-seccode/mobno/" + CalendarTool.getCoded(((LoginActivity) getActivity()).mobNum)
+                AppVariables.getServerAddress() + "send-seccode/mobno/" + CalendarTool.getCoded(((LoginActivity) getActivity()).mobNum)
         );
-        Log.e("Tag" ," -----> " +  ((LoginActivity) getActivity()).mobNum);
 
         ((Button) rootView.findViewById(R.id.lg)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +139,6 @@ public class SecurityCodeFragment extends Fragment {
                 EditText txtsecuritycode = (EditText) rootView.findViewById(R.id.txtScurity);
 
 
-                //Log.d("verifyFromMobile",verifyFromMobile);
 
                 if (!txtsecuritycode.getEditableText().toString().equals(secCode)) {
                     Toast.makeText(getActivity(),getString(R.string.SecurityCode_not_match),Toast.LENGTH_LONG).show();
@@ -184,7 +181,7 @@ public class SecurityCodeFragment extends Fragment {
             nameValuePairs.add(new BasicNameValuePair("mobno", params[3]));
             nameValuePairs.add(new BasicNameValuePair("appType", params[4]));
 
-            HttpPost httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/create-account/");
+            HttpPost httpPost = new HttpPost(AppVariables.getServerAddress() + "create-account/");
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             } catch (UnsupportedEncodingException e1) {
@@ -196,7 +193,6 @@ public class SecurityCodeFragment extends Fragment {
                 HttpResponse response = httpClient.execute(httpPost);
                 StatusLine statusLine = response.getStatusLine();
                 int statusCode = statusLine.getStatusCode();
-                //Log.e("JSON", String.valueOf(statusCode));
                 if (statusCode > -1) {
                     HttpEntity entity = response.getEntity();
                     InputStream inputStream = entity.getContent();
@@ -208,12 +204,9 @@ public class SecurityCodeFragment extends Fragment {
                     }
                     inputStream.close();
                 } else {
-//                    Log.d("JSON", "Failed to download file");
                 }
             } catch (Exception e) {
-                //Log.d("readJSONFeed", e.getLocalizedMessage());
             }
-//        	Log.d("result", stringBuilder.toString());
             return stringBuilder.toString();
         }
 
@@ -261,7 +254,6 @@ public class SecurityCodeFragment extends Fragment {
                 }
 
             } catch (Exception e) {
-        	   Log.e("ReadMahfelJSONFeedTask", "error:" + e);
             }
         }
 
@@ -279,11 +271,9 @@ public class SecurityCodeFragment extends Fragment {
                      secCode =  jsonObject.getString("code");
 
                     ts.start();
-                    Log.e("Tag" , " -----> " + secCode);
                 }
 
             } catch (Exception e) {
-//            	Log.e("ReadMahfelJSONFeedTask", "error : " + e);
             }
         }
     }

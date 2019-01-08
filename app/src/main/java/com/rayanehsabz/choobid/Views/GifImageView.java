@@ -89,7 +89,6 @@ public class GifImageView extends View {
             mInputStream = mContext.getContentResolver().openInputStream(uri);
             init();
         } catch (FileNotFoundException e) {
-            Log.e("GIfImageView", "File not found");
         }
     }
 }

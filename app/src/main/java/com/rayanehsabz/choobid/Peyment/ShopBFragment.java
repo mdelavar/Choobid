@@ -109,7 +109,7 @@ public class ShopBFragment extends Fragment {
 
         loading.show();
         new BacketTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6));
+                AppVariables.getServerAddress() + "get-backet/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6));
 
 
         ((ImageView) rootView.findViewById(R.id.next_detail)).setOnClickListener(new View.OnClickListener() {
@@ -166,7 +166,7 @@ public class ShopBFragment extends Fragment {
                 String pId = String.valueOf(((BuyProductActivity) getActivity()).ShopeDetail.pId);
                 String accId = String.valueOf(db.getSettingString(6));
                 new CheckCode().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                        AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-check-discount-code/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + accId + "/product-id/" + pId + "/discount-code/" + code);
+                        AppVariables.getServerAddress() + "get-check-discount-code/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + accId + "/product-id/" + pId + "/discount-code/" + code);
 
 
             }
@@ -187,7 +187,6 @@ public class ShopBFragment extends Fragment {
             try {
                 JSONObject jsonObject = new JSONObject(result);
 
-                Log.e("res", result);
                 products.clear();
                 products = new ArrayList<BacketProduct>();
 
@@ -210,7 +209,6 @@ public class ShopBFragment extends Fragment {
                             BacketProduct bs = new BacketProduct(new JSONObject(jsa.getString(i)));
                             products.add(bs);
 
-                            Log.e("log" , bs.portable + "");
 
                             if (bs.portable) portable = true;
 
@@ -254,7 +252,6 @@ public class ShopBFragment extends Fragment {
                                         );
                                         setTotalPrice();
                                     } catch (Exception e) {
-                                        Log.e("Select" , e.toString());
                                     }
 
                                 }
@@ -276,7 +273,7 @@ public class ShopBFragment extends Fragment {
                                     loading.show();
                                     portable = false;
                                     new BacketTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                                            AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/delete-backet-item/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/inpr-id/" + idp
+                                            AppVariables.getServerAddress() + "delete-backet-item/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/inpr-id/" + idp
                                     );
 
                                 }
@@ -286,7 +283,6 @@ public class ShopBFragment extends Fragment {
                             parent.addView(item);
 
                         } catch (Exception e) {
-                            Log.e("Tag", e.toString());
                         }
 
                     }
@@ -309,7 +305,6 @@ public class ShopBFragment extends Fragment {
 
 
             } catch (Exception e) {
-                Log.e("Err", e.toString());
             }
 
         }
@@ -328,7 +323,6 @@ public class ShopBFragment extends Fragment {
                 JSONObject jsonObject = new JSONObject(result);
 
             } catch (Exception e) {
-                Log.e("Err", e.toString());
             }
 
         }
@@ -420,7 +414,7 @@ public class ShopBFragment extends Fragment {
             nameValuePairs.add(new BasicNameValuePair("phone", params[15]));
 
 
-            HttpPost httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/create-invoice/");
+            HttpPost httpPost = new HttpPost(AppVariables.getServerAddress() + "create-invoice/");
 
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -434,7 +428,6 @@ public class ShopBFragment extends Fragment {
                 HttpResponse response = httpClient.execute(httpPost);
                 StatusLine statusLine = response.getStatusLine();
                 int statusCode = statusLine.getStatusCode();
-//                Log.e("JSON", String.valueOf(statusCode));
                 if (statusCode > -1) {
                     HttpEntity entity = response.getEntity();
                     InputStream inputStream = entity.getContent();
@@ -446,12 +439,9 @@ public class ShopBFragment extends Fragment {
                     }
                     inputStream.close();
                 } else {
-//                    Log.d("JSON", "Failed to download file");
                 }
             } catch (Exception e) {
-                //Log.d("readJSONFeed", e.getLocalizedMessage());
             }
-//        	Log.e("calback", stringBuilder.toString());
             return stringBuilder.toString();
         }
 
@@ -466,7 +456,6 @@ public class ShopBFragment extends Fragment {
 
 
                 JSONObject jsonObject = new JSONObject(result);
-                Log.e("invoice", result);
                 if (jsonObject.has("invoiceId")) {
 
 
@@ -476,7 +465,6 @@ public class ShopBFragment extends Fragment {
 
             } catch (Exception e) {
 
-                Log.e("Tag", " ---> " + e);
             }
 
 
@@ -513,7 +501,6 @@ public class ShopBFragment extends Fragment {
                 }
 
             } catch (Exception e) {
-//          	Log.d("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }

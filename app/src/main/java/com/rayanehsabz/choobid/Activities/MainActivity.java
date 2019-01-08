@@ -114,11 +114,10 @@ public class MainActivity extends AppCompatActivity {
 
         new AppTypeTask().execute(
 
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-app-data/email/" + CalendarTool.getCoded(db.getSettingString(8)) + "/pass/" + CalendarTool.getCoded(db.getSettingString(9))
+                AppVariables.getServerAddress() + "get-app-data/email/" + CalendarTool.getCoded(db.getSettingString(8)) + "/pass/" + CalendarTool.getCoded(db.getSettingString(9))
         );
 
         if (!isMyServiceRunning(NotiService.class)) {
-            Log.e("Service", "Running");
             Intent in = new Intent(this, NotiService.class);
             startService(in);
         }
@@ -221,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         new BacketCount().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
+                AppVariables.getServerAddress() + "get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
         );
 
     }
@@ -232,11 +231,9 @@ public class MainActivity extends AppCompatActivity {
             ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
             for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
                 if (serviceClass.getName().equals(service.service.getClassName())) {
-                    Log.e("Service", "true");
                     return true;
                 }
             }
-            Log.e("Service", "false");
             return false;
         } catch (Exception e) {
             return false;
@@ -335,7 +332,6 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!m1.getString("adsPicUrl").equals("")) {
 
-                        Log.e("tag", "1");
                         final String url = m1.getString("adsUrl");
                         String pic = m1.getString("adsPicUrl");
                         String type = m1.getString("adsType");
@@ -344,7 +340,6 @@ public class MainActivity extends AppCompatActivity {
 
                         if (!db.getSettingString(1).equals(feId)) {
 
-                            Log.e("tag", "2");
 
                             final Dialog loading = new Dialog(MainActivity.this);
                             loading.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -356,16 +351,12 @@ public class MainActivity extends AppCompatActivity {
                                     finish();
                                 }
                             });
-                            Log.e("tag", "3");
 
                             loading.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                             loading.setContentView(R.layout.dialog_ads);
-                            Log.e("tag", "4");
                             ImageView adsPic = (ImageView) loading.findViewById(R.id.ads);
                             Picasso.with(MainActivity.this).load(pic).into(adsPic);
-                            Log.e("tag", "5");
                             if (type.equals("url")) {
-                                Log.e("tag", "6");
                                 adsPic.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -374,7 +365,6 @@ public class MainActivity extends AppCompatActivity {
                                         loading.dismiss();
                                     }
                                 });
-                                Log.e("tag", "7");
                             } else if (type.equals("")) {
 
                                 adsPic.setOnClickListener(new View.OnClickListener() {
@@ -396,7 +386,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }
@@ -424,7 +413,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }

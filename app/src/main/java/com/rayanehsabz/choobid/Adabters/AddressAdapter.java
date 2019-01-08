@@ -140,7 +140,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHo
 
                         new DeleteAddressTask().execute(
 
-                          AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/delete-address" +
+                          AppVariables.getServerAddress() + "delete-address" +
                                   "/email/" +
                                   CalendarTool.getCoded(email) +
                                   "/pass/" +
@@ -182,7 +182,6 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHo
                 }
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }
@@ -250,7 +249,6 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHo
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
             } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             return mIcon11;

@@ -45,7 +45,6 @@ public class BankPageFragment extends Fragment {
 
         String body = "http://choobid.com/apppay?token=" + CalendarTool.getCoded(token) + "&merchantId=" + merchant;
 
-        Log.e("url" , body);
 
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setAction("android.intent.action.VIEW");

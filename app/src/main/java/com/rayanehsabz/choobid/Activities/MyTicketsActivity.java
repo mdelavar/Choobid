@@ -53,7 +53,7 @@ public class MyTicketsActivity extends AppCompatActivity {
         super.onResume();
 
         new BacketCount().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
+                AppVariables.getServerAddress() + "get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
         );
 
     }
@@ -153,7 +153,7 @@ public class MyTicketsActivity extends AppCompatActivity {
         rcl.setLayoutManager(lLayout);
         rcl.setAdapter(adapter);
 
-        new TicketTask().execute(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-my-tickets/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + accId + "/from-record/0/to-record/12");
+        new TicketTask().execute(AppVariables.getServerAddress() + "get-my-tickets/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + accId + "/from-record/0/to-record/12");
 
 
     }
@@ -216,7 +216,6 @@ public class MyTicketsActivity extends AppCompatActivity {
                 }
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }

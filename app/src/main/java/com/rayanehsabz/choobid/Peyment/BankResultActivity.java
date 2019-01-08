@@ -62,7 +62,7 @@ public class BankResultActivity extends AppCompatActivity {
 
         new InvoiceStatusTasck().execute(
 
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-invoice-status/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + accId + "/invoice-no/" + invoiceId
+                AppVariables.getServerAddress() + "get-invoice-status/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + accId + "/invoice-no/" + invoiceId
         );
     }
 

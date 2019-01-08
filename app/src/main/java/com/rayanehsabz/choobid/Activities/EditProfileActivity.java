@@ -168,7 +168,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     ((Button) changePass.findViewById(R.id.changeP)).setClickable(false);
                     ((TextView) changePass.findViewById(R.id.waitP)).setVisibility(View.VISIBLE);
                     new ReadPassJSONFeedTask().execute(
-                            AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/update-pass/email/"
+                            AppVariables.getServerAddress() + "update-pass/email/"
                                     + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/scrname/" + CalendarTool.getCoded(db.getSettingString(11)) + "/newpass/" + CalendarTool.getCoded(npassE.getText().toString()));
                 }
             }
@@ -201,7 +201,6 @@ public class EditProfileActivity extends AppCompatActivity {
         TextView yeard = (TextView) findViewById(R.id.year);
 
 
-        Log.e("TAg" , " --> " + db.getSettingString(116));
         if (!db.getSettingString(116).equals("0")) {
             stated.setText(db.getStateName(db.getSettingString(116)));
             cityd.setText(db.getCityName(db.getSettingString(116)));
@@ -233,10 +232,10 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
         new ReadPicsJSONFeedTask().execute(
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-avatars/email/"
+                AppVariables.getServerAddress() + "get-avatars/email/"
                         + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass));
         new CheckPresenterTask().execute(
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/check-presenter/email/"
+                AppVariables.getServerAddress() + "check-presenter/email/"
                         + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6));
 
 
@@ -265,7 +264,6 @@ public class EditProfileActivity extends AppCompatActivity {
                     ((ListView) dialog.findViewById(R.id.listC)).setAdapter(adapter);
                 } catch (Exception e) {
 
-                    Log.e("Tag1", " ---> " + e);
                 }
                 dialog.show();
             }
@@ -290,7 +288,6 @@ public class EditProfileActivity extends AppCompatActivity {
                         ((ListView) dialog.findViewById(R.id.listC)).setAdapter(adapter);
                     } catch (Exception e) {
 
-                        Log.e("Tag2", " ---> " + e);
                     }
                     dialog.show();
 
@@ -351,7 +348,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     Toast.makeText(context, "کد معرف را وارد کنید.", Toast.LENGTH_SHORT).show();
                 } else {
                     new SetPresenterTask().execute(
-                            AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/set-presenter/email/"
+                            AppVariables.getServerAddress() + "set-presenter/email/"
                                     + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/presenter-account-id/"  + prId.getText().toString()
 
                     );
@@ -442,7 +439,6 @@ public class EditProfileActivity extends AppCompatActivity {
                         } else {
 
                             cityCode = db.getCityCode(ss);
-                            Log.e("Tag", " ---> " + cityCode);
 
                         }
                         textView.setText(ss);
@@ -580,7 +576,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-//            	Log.d("ReadMahfelJSONFeedTask", e.getLocalizedMessage());
             }
         }
     }
@@ -618,7 +613,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
 
             } catch (Exception e) {
-//            	Log.e("ReadMahfelJSONFeedTask", "errora:" + e);
             }
 
         }
@@ -643,7 +637,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-//            	Log.e("ReadMahfelJSONFeedTask", "errora:" + e);
             }
 
         }
@@ -670,7 +663,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-//            	Log.e("ReadMahfelJSONFeedTask", "errora:" + e);
             }
 
         }
@@ -892,7 +884,6 @@ public class EditProfileActivity extends AppCompatActivity {
                     mIcon11 = BitmapFactory.decodeStream(in);
                 }
             } catch (Exception e) {
-//                Log.e("Error", "error" + e);
                 e.printStackTrace();
             }
             return mIcon11;
@@ -966,7 +957,7 @@ public class EditProfileActivity extends AppCompatActivity {
             nameValuePairs.add(new BasicNameValuePair("day", params[9]));
             nameValuePairs.add(new BasicNameValuePair("cityCode", params[10]));
 
-            httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/update-account/");
+            httpPost = new HttpPost(AppVariables.getServerAddress() + "update-account/");
 
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -1050,7 +1041,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", e + "");
             }
         }
     }
@@ -1076,7 +1066,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
             } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             return mIcon11;

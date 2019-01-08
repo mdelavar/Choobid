@@ -43,7 +43,6 @@ public class MyTicket {
 
 
         } catch (JSONException e) {
-            Log.e("Error" , e + "");
 
         }
     }

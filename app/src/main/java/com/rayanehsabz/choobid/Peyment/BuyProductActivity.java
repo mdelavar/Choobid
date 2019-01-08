@@ -57,7 +57,6 @@ public class BuyProductActivity extends AppCompatActivity {
 
         Bundle extra = getIntent().getExtras();
 
-        Log.e("id" , " ----> " + extra.getLong("pId" ));
 
         if (extra != null) {
 

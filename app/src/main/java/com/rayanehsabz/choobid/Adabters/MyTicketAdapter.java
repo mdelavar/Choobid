@@ -116,7 +116,6 @@ public class MyTicketAdapter extends RecyclerView.Adapter<MyTicketAdapter.MyView
                     public void onClick(View view) {
 
                         String url = AppVariables.getServerAddress() + finish.get(position).file1;
-                        Log.e("URL" , " -> "  + url);
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                         context.startActivity(browserIntent);
 
@@ -218,7 +217,6 @@ public class MyTicketAdapter extends RecyclerView.Adapter<MyTicketAdapter.MyView
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
             } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             return mIcon11;

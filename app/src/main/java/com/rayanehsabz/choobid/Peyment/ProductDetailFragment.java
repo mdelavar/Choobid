@@ -89,7 +89,7 @@ public class ProductDetailFragment extends Fragment {
         pass = db.getSettingString(9);
 
         new ProductTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR ,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-store-product/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/product-id/" + pId);
+                AppVariables.getServerAddress() + "get-store-product/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/product-id/" + pId);
 
 
     }
@@ -217,7 +217,7 @@ public class ProductDetailFragment extends Fragment {
 
 
                         new AddToBacketTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR ,
-                                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/add-to-backet/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/product-id/" + pId + "/product-count/1/"
+                                AppVariables.getServerAddress() + "add-to-backet/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/product-id/" + pId + "/product-count/1/"
                                 + "/color-id/" + colorId + "/garanty-id/" + garantyId + "/size-id/" + sizeId
                         );
 
@@ -231,7 +231,6 @@ public class ProductDetailFragment extends Fragment {
                 loading.dismiss();
             } catch (Exception e) {
 
-                Log.e("Tag", " ---> " + e);
             }
 
         }
@@ -298,7 +297,6 @@ public class ProductDetailFragment extends Fragment {
                 }
             } catch (Exception e) {
 
-                Log.e("Tag", " ---> " + e);
 
             }
 

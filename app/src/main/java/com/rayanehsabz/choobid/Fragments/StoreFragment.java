@@ -95,7 +95,7 @@ public class StoreFragment extends Fragment {
         // CatAdapter
 
         new CategoryTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR ,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-store-categories/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass));
+                AppVariables.getServerAddress() + "get-store-categories/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass));
 
 
         catRecycler = (RecyclerView) rootView.findViewById(R.id.catRecycler);
@@ -154,7 +154,7 @@ public class StoreFragment extends Fragment {
 
         // Get Product
         new ProductTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR ,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-store/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/ci/" + categoryId + "/from-record/" + fromN + "/to-record/" + toN);
+                AppVariables.getServerAddress() + "get-store/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/ci/" + categoryId + "/from-record/" + fromN + "/to-record/" + toN);
 
     }
 
@@ -176,7 +176,7 @@ public class StoreFragment extends Fragment {
         loading.show();
 
         new ProductTask().execute(
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-store/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/ci/" + categoryId + "/from-record/" + fromN + "/to-record/" + toN);
+                AppVariables.getServerAddress() + "get-store/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/ci/" + categoryId + "/from-record/" + fromN + "/to-record/" + toN);
 
     }
 
@@ -213,7 +213,6 @@ public class StoreFragment extends Fragment {
 
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }
@@ -253,7 +252,6 @@ public class StoreFragment extends Fragment {
                 loading.dismiss();
 
             } catch (Exception e) {
-//          	Log.d("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }

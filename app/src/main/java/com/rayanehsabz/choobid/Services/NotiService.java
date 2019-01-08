@@ -77,7 +77,6 @@ public class NotiService extends Service {
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e("close", "onStartCommand");
         db = new Mydatabase(context);
         connectWebSocket();
 
@@ -91,7 +90,6 @@ public class NotiService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
-        Log.e("close", "onBind");
         return mBinder;
     }
 
@@ -100,7 +98,6 @@ public class NotiService extends Service {
      */
     @Override
     public boolean onUnbind(Intent intent) {
-        Log.e("close", "onUnbind");
         return mAllowRebind;
     }
 
@@ -109,7 +106,6 @@ public class NotiService extends Service {
      */
     @Override
     public void onRebind(Intent intent) {
-        Log.e("close", "onRebind");
     }
 
     /**
@@ -118,7 +114,6 @@ public class NotiService extends Service {
     @Override
     public void onDestroy() {
         doSend("close");
-        Log.e("close", "onDestroy");
     }
 
     private void connectWebSocket() {
@@ -134,7 +129,6 @@ public class NotiService extends Service {
 
             @Override
             public void onOpen(ServerHandshake serverHandshake) {
-                Log.e("WebsocketService", "Opened" + i);
                 i++;
 //                doSend("getBidData");
                 Handler handler = new Handler(Looper.getMainLooper());
@@ -149,7 +143,6 @@ public class NotiService extends Service {
 
             @Override
             public void onMessage(String s) {
-                Log.e("TagService", " M : " + s);
 
                 try {
 
@@ -205,7 +198,6 @@ public class NotiService extends Service {
 
                                     boolean insert = db.insertNotification(obj.getString("time") , "" , obj.getString("text") , "" , "" );
 
-                                    Log.e("Insert" , insert + "");
 
                                     contentView = new RemoteViews(context.getApplicationContext().getPackageName(), R.layout.custom_noti);
 
@@ -252,7 +244,6 @@ public class NotiService extends Service {
 
             {
 
-                Log.e("Tag", " ---> ErrorService : " + e);
 
             }
 
@@ -260,7 +251,6 @@ public class NotiService extends Service {
 
         @Override
         public void onClose ( int i, String s,boolean b){
-            Log.e("WebsocketService", "Closed " + s);
 
             Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(new Runnable() {
@@ -269,7 +259,6 @@ public class NotiService extends Service {
                     try {
                         connectWebSocket();
                     } catch (Exception ex) {
-                        Log.e("Websocket-Error", "Websocket-Error---" + ex);
                     }
                 }
             }, 500);
@@ -280,7 +269,6 @@ public class NotiService extends Service {
 
         @Override
         public void onError (Exception e){
-            Log.e("Websocket", "Error " + e.getMessage());
         }
     }
 
@@ -333,7 +321,6 @@ private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
                 mIcon11 = BitmapFactory.decodeStream(in);
             }
         } catch (Exception e) {
-//                Log.e("Error", "error" + e);
             e.printStackTrace();
         }
         return mIcon11;

@@ -61,7 +61,6 @@ public class AddAddressActivity extends Activity {
     boolean select = false;
 
     String cityCode = "";
-    String disCode = "";
     EditText postCode;
     EditText street;
     EditText kooche;
@@ -83,7 +82,7 @@ public class AddAddressActivity extends Activity {
     ArrayList<String> citys = new ArrayList<String>();
 
     showLoading loading;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,15 +90,13 @@ public class AddAddressActivity extends Activity {
 
         extra = getIntent().getExtras();
 
-        if  (extra != null) {
+        if (extra != null) {
 
             aId = extra.getString("id");
 
         }
 
         try {
-
-
 
 
             city = (TextView) findViewById(R.id.cityT);
@@ -138,7 +135,7 @@ public class AddAddressActivity extends Activity {
 
                 ((TextView) findViewById(R.id.mcityT)).setText(db.getStateName(cityCode));
                 ((TextView) findViewById(R.id.cityT)).setText(db.getCityName(cityCode));
-                
+
                 postCode.setText(extra.getString("postalCode"));
                 street.setText(extra.getString("street"));
                 kooche.setText(extra.getString("alley"));
@@ -165,7 +162,7 @@ public class AddAddressActivity extends Activity {
                             phone = (cphone2.getText().toString().equals("") ? phone : cphone2.getText().toString());
                             loading.show();
 
-                            String[] params = {CalendarTool.getCoded(email), CalendarTool.getCoded(pass), String.valueOf(db.getSettingString(6)), cityCode, CalendarTool.getCoded(postCode.getText().toString()), CalendarTool.getCoded(street.getText().toString()), CalendarTool.getCoded(kooche.getText().toString()), CalendarTool.getCoded(pelak.getText().toString()), CalendarTool.getCoded(tabaghe.getText().toString()), CalendarTool.getCoded(vahed.getText().toString()), CalendarTool.getCoded(cname.getText().toString()), CalendarTool.getCoded(cphone.getText().toString()), CalendarTool.getCoded(phone) , aId};
+                            String[] params = {CalendarTool.getCoded(email), CalendarTool.getCoded(pass), String.valueOf(db.getSettingString(6)), cityCode, CalendarTool.getCoded(postCode.getText().toString()), CalendarTool.getCoded(street.getText().toString()), CalendarTool.getCoded(kooche.getText().toString()), CalendarTool.getCoded(pelak.getText().toString()), CalendarTool.getCoded(tabaghe.getText().toString()), CalendarTool.getCoded(vahed.getText().toString()), CalendarTool.getCoded(cname.getText().toString()), CalendarTool.getCoded(cphone.getText().toString()), CalendarTool.getCoded(phone), aId};
                             new AddAddressTask().execute(params);
 
 
@@ -198,7 +195,6 @@ public class AddAddressActivity extends Activity {
                         ((ListView) dialog.findViewById(R.id.listC)).setAdapter(adapter);
                     } catch (Exception e) {
 
-                        Log.e("Tag1", " ---> " + e);
                     }
                     dialog.show();
                 }
@@ -223,7 +219,6 @@ public class AddAddressActivity extends Activity {
                             ((ListView) dialog.findViewById(R.id.listC)).setAdapter(adapter);
                         } catch (Exception e) {
 
-                            Log.e("Tag2", " ---> " + e);
                         }
                         dialog.show();
 
@@ -238,12 +233,10 @@ public class AddAddressActivity extends Activity {
             });
         } catch (Exception e) {
 
-            Log.e("Tag" , e.toString());
 
         }
 
     }
-
 
 
     private class AddAddressTask extends AsyncTask<String, Void, String> {
@@ -273,8 +266,7 @@ public class AddAddressActivity extends Activity {
             nameValuePairs.add(new BasicNameValuePair("addId", params[13]));
 
 
-
-            httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/add-addresses/");
+            httpPost = new HttpPost(AppVariables.getServerAddress() + "add-addresses/");
 
             try {
                 httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -288,7 +280,6 @@ public class AddAddressActivity extends Activity {
                 HttpResponse response = httpClient.execute(httpPost);
                 StatusLine statusLine = response.getStatusLine();
                 int statusCode = statusLine.getStatusCode();
-//                Log.e("JSON", String.valueOf(statusCode));
                 if (statusCode > -1) {
                     HttpEntity entity = response.getEntity();
                     InputStream inputStream = entity.getContent();
@@ -300,12 +291,9 @@ public class AddAddressActivity extends Activity {
                     }
                     inputStream.close();
                 } else {
-//                    Log.d("JSON", "Failed to download file");
                 }
             } catch (Exception e) {
-                //Log.d("readJSONFeed", e.getLocalizedMessage());
             }
-//        	Log.e("calback", stringBuilder.toString());
             return stringBuilder.toString();
         }
 
@@ -314,8 +302,6 @@ public class AddAddressActivity extends Activity {
             try {
 
 
-                JSONObject jsonObject = new JSONObject(result);
-                Log.e("address", result);
                 loading.dismiss();
                 finish();
 
@@ -324,7 +310,6 @@ public class AddAddressActivity extends Activity {
 
             } catch (Exception e) {
 
-                Log.e("Tag", " ---> " + e);
             }
 
 
@@ -386,7 +371,6 @@ public class AddAddressActivity extends Activity {
                                 citys = db.getCitys(ss);
                                 city.setText(citys.get(0));
                                 cityCode = db.getCityCode(citys.get(0));
-                                Log.e("Tagsad", " ---> " + cityCode);
 
                             } catch (Exception e) {
 
@@ -396,7 +380,6 @@ public class AddAddressActivity extends Activity {
                             Position = p;
                         } else {
                             cityCode = db.getCityCode(ss);
-                            Log.e("Tagsad", " ---> " + cityCode);
 
                         }
                         textView.setText(ss);

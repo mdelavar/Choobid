@@ -202,7 +202,7 @@ public class SendTicketActivity extends AppCompatActivity {
         });
 
 
-        new TypesTask().execute(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-ticket-types/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass));
+        new TypesTask().execute(AppVariables.getServerAddress() + "get-ticket-types/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass));
         ((RelativeLayout) findViewById(R.id.Mcity)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -322,7 +322,6 @@ public class SendTicketActivity extends AppCompatActivity {
                         textView.setText(ss);
                         dialogT.dismiss();
 
-                        Log.e("Tag", typeId + "");
                     }
                 });
             } catch (Exception e) {
@@ -354,7 +353,6 @@ public class SendTicketActivity extends AppCompatActivity {
             loading.show();
             new SendMessageWithFileTask().execute(params);
             arg0.setClickable(false);
-            Log.e("test" , " ---> " + file1Type);
 
         }
 
@@ -411,7 +409,6 @@ public class SendTicketActivity extends AppCompatActivity {
                     entityBuilder.addPart("file1", byteArrayBody);
                     temp.delete();
                 }catch (Exception e) {
-                    Log.e("f" , "" + e);
                 }
             }
 
@@ -433,7 +430,6 @@ public class SendTicketActivity extends AppCompatActivity {
                     entityBuilder.addPart("file2", byteArrayBody);
                     temp.delete();
                 }catch (Exception e) {
-                    Log.e("f" , "" + e);
                 }
             }
 
@@ -443,7 +439,7 @@ public class SendTicketActivity extends AppCompatActivity {
 
             HttpEntity reqentity = entityBuilder.build();
 
-            httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/send-ticket/");
+            httpPost = new HttpPost(AppVariables.getServerAddress() + "send-ticket/");
             httpPost.setEntity(new ProgressHttpEntityWrapper(reqentity, progressCallback));
 
 
@@ -456,7 +452,6 @@ public class SendTicketActivity extends AppCompatActivity {
                 HttpResponse response = httpClient.execute(httpPost);
                 StatusLine statusLine = response.getStatusLine();
                 int statusCode = statusLine.getStatusCode();
-//                Log.e("JSON", String.valueOf(statusCode));
                 if (statusCode > -1) {
                     HttpEntity entity = response.getEntity();
                     InputStream inputStream = entity.getContent();
@@ -468,19 +463,15 @@ public class SendTicketActivity extends AppCompatActivity {
                     }
                     inputStream.close();
                 } else {
-//                    Log.d("JSON", "Failed to download file");
                 }
             } catch (Exception e) {
-                //Log.d("readJSONFeed", e.getLocalizedMessage());
             }
-//        	Log.e("calback", stringBuilder.toString());
             return stringBuilder.toString();
         }
 
 
         protected void onPostExecute(String result) {
             try {
-                Log.e("Tag" , result + "");
                 JSONObject jsonObject = new JSONObject(result);
 
                 if (result != null) {
@@ -493,7 +484,6 @@ public class SendTicketActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", e + "");
             }
 
 
@@ -505,7 +495,7 @@ public class SendTicketActivity extends AppCompatActivity {
         super.onResume();
 
         new BacketCount().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
+                AppVariables.getServerAddress() + "get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
         );
     }
 
@@ -532,7 +522,6 @@ public class SendTicketActivity extends AppCompatActivity {
                 }
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }

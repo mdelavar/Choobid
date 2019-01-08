@@ -148,7 +148,7 @@ public class ShowContentActivity extends AppCompatActivity {
 
         new GetContentTask().execute(
 
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-content/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/article-id/" + articleId
+                AppVariables.getServerAddress() + "get-content/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/article-id/" + articleId
         );
 
 
@@ -214,7 +214,7 @@ public class ShowContentActivity extends AppCompatActivity {
         super.onResume();
 
         new BacketCount().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
+                AppVariables.getServerAddress() + "get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
         );
     }
 
@@ -241,7 +241,6 @@ public class ShowContentActivity extends AppCompatActivity {
                 }
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }

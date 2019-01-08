@@ -116,7 +116,7 @@ public class WellcomeActivity extends AppCompatActivity {
 
                         new LoginTask().execute(
 
-                                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/login/email/" + emailC + "/pass/" + passC + "/reg/" + BuildConfig.VERSION_CODE + "/api/" + Build.VERSION.RELEASE + "/app-type/" + AppVariables.getAppTypeId()
+                                AppVariables.getServerAddress() + "login/email/" + emailC + "/pass/" + passC + "/reg/" + BuildConfig.VERSION_CODE + "/api/" + Build.VERSION.RELEASE + "/app-type/" + AppVariables.getAppTypeId()
                         );
 
 
@@ -257,7 +257,6 @@ public class WellcomeActivity extends AppCompatActivity {
 
 
                             }catch (Exception e) {
-                                Log.e("Tag" , " ---> " + e);
                             }
 
                         }
@@ -267,7 +266,6 @@ public class WellcomeActivity extends AppCompatActivity {
 
                 }
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }
@@ -292,7 +290,6 @@ public class WellcomeActivity extends AppCompatActivity {
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
             } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             return mIcon11;
@@ -338,7 +335,6 @@ public class WellcomeActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("ee" , " ------> " + e);
             }
         }
     }

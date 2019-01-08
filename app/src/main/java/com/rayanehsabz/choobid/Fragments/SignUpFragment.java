@@ -132,7 +132,7 @@ public class SignUpFragment extends Fragment {
 
                 } else {
                     loading.show();
-                    new ReadCheckJSONFeedTask().execute(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/check-account/email/" + CalendarTool.getCoded(txtemail.getText().toString()) + "/pass/" + pass + "/scrname/" + CalendarTool.getCoded(txtscreenname.getText().toString()) + "/mobno/" + CalendarTool.getCoded(txtmobileno.getText().toString()) + "/app-type/" + AppVariables.getAppTypeId());
+                    new ReadCheckJSONFeedTask().execute(AppVariables.getServerAddress() + "check-account/email/" + CalendarTool.getCoded(txtemail.getText().toString()) + "/pass/" + pass + "/scrname/" + CalendarTool.getCoded(txtscreenname.getText().toString()) + "/mobno/" + CalendarTool.getCoded(txtmobileno.getText().toString()) + "/app-type/" + AppVariables.getAppTypeId());
 
                 }
 
@@ -198,7 +198,6 @@ public class SignUpFragment extends Fragment {
 
 
             } catch (Exception e) {
-//            	Log.e("ReadMahfelJSONFeedTask", "error : " + e);
             }
         }
     }

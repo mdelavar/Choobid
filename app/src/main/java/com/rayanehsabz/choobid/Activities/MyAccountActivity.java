@@ -159,7 +159,7 @@ public class MyAccountActivity extends AppCompatActivity {
 
         // Get Product
         new MyPaymentsTask().execute(
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-peyments/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/from-record/0/to-record/48");
+                AppVariables.getServerAddress() + "get-peyments/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/from-record/0/to-record/48");
 
 
 
@@ -196,7 +196,6 @@ public class MyAccountActivity extends AppCompatActivity {
                     mIcon11 = BitmapFactory.decodeStream(in);
                 }
             } catch (Exception e) {
-//                Log.e("Error", "error" + e);
                 e.printStackTrace();
             }
             return mIcon11;
@@ -284,7 +283,6 @@ public class MyAccountActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-//          	Log.d("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }
@@ -295,7 +293,7 @@ public class MyAccountActivity extends AppCompatActivity {
         super.onResume();
 
         new BacketCount().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
+                AppVariables.getServerAddress() + "get-backet-count/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6)
         );
     }
 
@@ -322,7 +320,6 @@ public class MyAccountActivity extends AppCompatActivity {
                 }
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error : " + e);
 
             }
         }

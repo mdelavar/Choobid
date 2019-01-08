@@ -61,7 +61,6 @@ public class BacketProduct {
             this.sizeId = jsonObject.getLong("size");
 
         } catch (JSONException e) {
-            Log.e("Tag" , "e : " + e);
         }
     }
 

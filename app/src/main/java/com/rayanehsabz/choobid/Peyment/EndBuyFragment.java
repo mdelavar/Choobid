@@ -100,7 +100,7 @@ public class EndBuyFragment extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
 
         new BacketTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-backet/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6));
+                AppVariables.getServerAddress() + "get-backet/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6));
 
 
         ((ImageView) rootView.findViewById(R.id.pay)).setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@ public class EndBuyFragment extends Fragment {
                 loading.show();
                 new TokenTask().execute(
 
-                        AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-token/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/invoice-no/0"
+                        AppVariables.getServerAddress() + "get-token/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/acc-id/" + db.getSettingString(6) + "/invoice-no/0"
                 );
 
             }
@@ -171,7 +171,6 @@ public class EndBuyFragment extends Fragment {
 
                     } catch (Exception e) {
 
-                        Log.e("Tag", e.toString());
                     }
 
 
@@ -216,7 +215,6 @@ public class EndBuyFragment extends Fragment {
 
 
             } catch (Exception e) {
-                Log.e("Err", e.toString());
             }
 
         }

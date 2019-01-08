@@ -96,7 +96,7 @@ public class LoginFragment extends Fragment {
                     loading.show();
                     new LoginTask().execute(
 
-                            AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/login/email/" + emailC + "/pass/" + passC + "/reg/" + BuildConfig.VERSION_CODE + "/api/" + Build.VERSION.RELEASE + "/app-type/" + AppVariables.getAppTypeId()
+                            AppVariables.getServerAddress() + "login/email/" + emailC + "/pass/" + passC + "/reg/" + BuildConfig.VERSION_CODE + "/api/" + Build.VERSION.RELEASE + "/app-type/" + AppVariables.getAppTypeId()
                     );
                 }
 
@@ -121,7 +121,7 @@ public class LoginFragment extends Fragment {
                                     tx.setBackgroundResource(R.drawable.wait_icon);
                                     new forgetJSONFeedTask().execute(
 
-                                            AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/send-pass/email/"
+                                            AppVariables.getServerAddress() + "send-pass/email/"
                                                     + CalendarTool.getCoded(email.getText().toString())) ;
                                     break;
                                 }
@@ -154,7 +154,6 @@ public class LoginFragment extends Fragment {
 
                 JSONObject jsonObject = new JSONObject(result);
                 if (jsonObject.has("code") && !jsonObject.getString("code").equals("0") ) {
-                    Log.e("Tag" , " ---> " + jsonObject.getString("code"));
                     TextView tx = (TextView) rootView.findViewById(R.id.forgetPass);
                     tx.setText(R.string.PassSended);
                     tx.setBackgroundResource(0);
@@ -168,7 +167,6 @@ public class LoginFragment extends Fragment {
 
 
             } catch (Exception e) {
-        	    Log.e("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
 
@@ -263,7 +261,6 @@ public class LoginFragment extends Fragment {
 
                 }
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }
@@ -289,7 +286,6 @@ public class LoginFragment extends Fragment {
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
             } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             return mIcon11;
@@ -335,7 +331,6 @@ public class LoginFragment extends Fragment {
 
 
             } catch (Exception e) {
-                Log.e("ee" , " ------> " + e);
             }
         }
     }

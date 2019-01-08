@@ -44,7 +44,6 @@ public class store {
 
 
         } catch (JSONException e) {
-            Log.e(" e -- > "  , e.toString());
         }
     }
 

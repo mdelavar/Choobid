@@ -169,7 +169,7 @@ public class SearchActivity extends AppCompatActivity {
             loading.show();
 
             new ProductTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
-                    AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/search/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/value/" + CalendarTool.getCoded(val));
+                    AppVariables.getServerAddress() + "search/email/" + CalendarTool.getCoded(email) + "/pass/" + CalendarTool.getCoded(pass) + "/value/" + CalendarTool.getCoded(val));
         } else {
 
             Toast.makeText(context , "متن وارد شده باید بیشتر از سه حرف باشد!" , Toast.LENGTH_SHORT).show();
@@ -209,7 +209,6 @@ public class SearchActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", "error:" + e);
             }
 
         }

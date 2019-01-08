@@ -52,14 +52,13 @@ import java.io.InputStreamReader;
 
 public class AppVariables {
 
-
-    static String appTypeId = "1";
-    static String serverAddress = "http://choobid.com/";
-    static String bidWebsocketAddress = "ws://choobid.com/choobid-portlet/websocket/bid";
-    static String notifWebsocketAddress = "ws://choobid.com/choobid-portlet/websocket/notif";
-    static String avatarFolder = "/choobid/.avatar";
-    static String productsFolder = "/choobid/.products";
-
+    private static String siteAddress = "yourDomain.etc";
+    private static String socketAddress = "ws://yourDomain.etc";
+    private static String appTypeId = "1";
+    private static String serverAddress = "choobid-portlet/api/jsonws/account/";
+    private static String notifWebsocketAddress = socketAddress + "/choobid-portlet/websocket/notif";
+    private static String avatarFolder = "/choobid/.avatar";
+    private static String productsFolder = "/choobid/.products";
 
     static public boolean checkNetwoek(Activity context) {
 
@@ -72,29 +71,12 @@ public class AppVariables {
         return isConnected;
     }
 
-
-    public static String getCitiesString(Activity a) {
-        String json = null;
-        try {
-            InputStream is = a.getAssets().open("json/Province.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (Exception ex) {
-            Log.e("ttg", ex + "");
-            return null;
-        }
-        return json;
-    }
-
     public static String getAppTypeId() {
         return appTypeId;
     }
 
     public static String getServerAddress() {
-        return serverAddress;
+        return siteAddress + serverAddress;
     }
 
     public static String getAvatarFolder() {
@@ -103,10 +85,6 @@ public class AppVariables {
 
     public static String getProductsFolder() {
         return productsFolder;
-    }
-
-    public static String getBidWebsocketAddress() {
-        return bidWebsocketAddress;
     }
 
     public static String getNotifWebsocketAddress() {
@@ -127,11 +105,9 @@ public class AppVariables {
         return (result);
     }
 
-
     public static String readJSONFeed(String URL) {
         StringBuilder stringBuilder = new StringBuilder();
         HttpClient httpClient = new DefaultHttpClient();
-        Log.e("JSON", URL);
         String credentials = "json%40birib%2Eir:json2";
 
         HttpGet httpGet = new HttpGet(URL);
@@ -141,7 +117,6 @@ public class AppVariables {
             HttpResponse response = httpClient.execute(httpGet);
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();
-            //Log.e("JSON", String.valueOf(statusCode));
             if (statusCode > -1) {
                 HttpEntity entity = response.getEntity();
                 InputStream inputStream = entity.getContent();
@@ -153,10 +128,8 @@ public class AppVariables {
                 }
                 inputStream.close();
             } else {
-//                Log.d("JSON", "Failed to download file");
             }
         } catch (Exception e) {
-            Log.e("readJSONFeed", "Error : " + e);
         }
         return stringBuilder.toString();
     }

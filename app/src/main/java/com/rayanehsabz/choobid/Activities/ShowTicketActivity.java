@@ -106,7 +106,7 @@ public class ShowTicketActivity extends AppCompatActivity {
         rcycler.setLayoutManager(layoutManager);
         rcycler.setAdapter(adapter);
 
-        new TicketTask().execute(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/get-ticket-answers/email/" + CalendarTool.getCoded(email) + "/pass/" +  CalendarTool.getCoded(pass) + "/ticket-id/" + id + "/from-record/0/to-record/12") ;
+        new TicketTask().execute(AppVariables.getServerAddress() + "get-ticket-answers/email/" + CalendarTool.getCoded(email) + "/pass/" +  CalendarTool.getCoded(pass) + "/ticket-id/" + id + "/from-record/0/to-record/12") ;
 
         final EditText editText = (EditText) findViewById(R.id.contentT) ;
         ((ImageView) findViewById(R.id.sendM)).setOnClickListener(new View.OnClickListener() {
@@ -179,7 +179,6 @@ public class ShowTicketActivity extends AppCompatActivity {
                     entityBuilder.addPart("file1", byteArrayBody);
                     temp.delete();
                 }catch (Exception e) {
-                    Log.e("f" , "" + e);
                 }
             }
 
@@ -201,7 +200,6 @@ public class ShowTicketActivity extends AppCompatActivity {
                     entityBuilder.addPart("file2", byteArrayBody);
                     temp.delete();
                 }catch (Exception e) {
-                    Log.e("f" , "" + e);
                 }
             }
 
@@ -211,7 +209,7 @@ public class ShowTicketActivity extends AppCompatActivity {
 
             HttpEntity reqentity = entityBuilder.build();
 
-            HttpPost httpPost = new HttpPost(AppVariables.getServerAddress() + "/choobid-portlet/api/jsonws/account/send-ticket/");
+            HttpPost httpPost = new HttpPost(AppVariables.getServerAddress() + "send-ticket/");
             httpPost.setEntity(new ProgressHttpEntityWrapper(reqentity, progressCallback));
 
 
@@ -224,7 +222,6 @@ public class ShowTicketActivity extends AppCompatActivity {
                 HttpResponse response = httpClient.execute(httpPost);
                 StatusLine statusLine = response.getStatusLine();
                 int statusCode = statusLine.getStatusCode();
-//                Log.e("JSON", String.valueOf(statusCode));
                 if (statusCode > -1) {
                     HttpEntity entity = response.getEntity();
                     InputStream inputStream = entity.getContent();
@@ -236,19 +233,15 @@ public class ShowTicketActivity extends AppCompatActivity {
                     }
                     inputStream.close();
                 } else {
-//                    Log.d("JSON", "Failed to download file");
                 }
             } catch (Exception e) {
-                //Log.d("readJSONFeed", e.getLocalizedMessage());
             }
-//        	Log.e("calback", stringBuilder.toString());
             return stringBuilder.toString();
         }
 
 
         protected void onPostExecute(String result) {
             try {
-                Log.e("Tag" , result + "");
                 JSONObject jsonObject = new JSONObject(result);
 
                 if (result != null) {
@@ -261,7 +254,6 @@ public class ShowTicketActivity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                Log.e("ReadMahfelJSONFeedTask", e + "");
             }
 
 
