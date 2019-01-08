@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context="com.rayanehsabz.choobid.Activities.EditProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/scrName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center"
+                        android:textColor="@color/orange"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="نام نمایشی : " />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/accId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center"
+                        android:textColor="@color/orange"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="کد حساب کاربری : " />
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/presenterP"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/discount_code_null" />
+
+                    <TextView
+                        android:id="@+id/lg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="ثبت کد معرف"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtEmail1"
+                    android:layout_width="260dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="center_vertical|right"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/mobileNo"
+                    android:layout_width="260dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="center_vertical|right"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/sologan"
+                    android:layout_width="260dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="center_vertical|right"
+                    android:hint="@string/sologan"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textSize="16sp" />
+
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="260dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="center_vertical|right"
+                    android:hint="نام و نام خانوادگی"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/nationalCode"
+                    android:layout_width="260dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="center_vertical|right"
+                    android:hint="کد ملی"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textSize="16sp" />
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/Mstate"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/spiner_back" />
+
+                    <TextView
+                        android:id="@+id/sTypes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="50dp"
+                        android:text="استان"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/Mcity"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="2dp"
+
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/spiner_back" />
+
+                    <TextView
+                        android:id="@+id/cTypes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="50dp"
+                        android:text="شهر"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:padding="7dp"
+                    android:text="تاریخ تولد"
+                    android:textColor="@color/orange"
+                   android:layout_marginTop="10dp"
+
+                    />
+                <View
+                    android:layout_width="260dp"
+                    android:layout_height="3dp"
+                    android:background="@color/orange"
+                    android:layout_marginBottom="15dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/yearP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_weight="1"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/spiner_back_m" />
+
+                        <TextView
+                            android:id="@+id/year"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="سال"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/monthP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_weight="1"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/spiner_back_m" />
+
+                        <TextView
+                            android:id="@+id/month"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="ماه"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+
+                        android:id="@+id/dayP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_weight="1"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/spiner_back_m" />
+
+                        <TextView
+                            android:id="@+id/day"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="روز"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/changePass"
+                    android:layout_width="260dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/change_pass" />
+
+
+                <Button
+                    android:id="@+id/ed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="ویرایش"
+                    android:onClick="edit"
+                    android:theme="@style/ButtonOrange" />
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/metalic"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="17dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ثبت معرف"
+                android:textColor="@color/white"
+                android:textSize="23dp"
+
+                />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/orange"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/presenterCode"
+            android:layout_width="220dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text"
+            android:gravity="center_vertical|right"
+            android:hint="کد معرف"
+            android:inputType="text"
+            android:lines="1"
+            android:padding="10dp"
+            android:text=""
+            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/changeP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ButtonOrange"
+                android:text="ثبت" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ButtonRed"
+                android:text="انصراف" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/wait"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:id="@+id/waitP"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

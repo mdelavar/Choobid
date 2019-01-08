@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/metalic"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="17dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="25dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تغییر رمز عبور"
+                android:textColor="@color/white"
+                android:textSize="23dp"
+
+                />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/orange"/>
+
+        </LinearLayout>
+        <EditText
+            android:id="@+id/cPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@color/gray"
+            android:hint="رمز عبور"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/npass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@color/gray"
+            android:hint="رمز عبور جدید"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/reNPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@color/gray"
+            android:hint="تکرار رمز عبور جدید"
+            android:padding="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/changeP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ButtonOrange"
+                android:text="تغییر" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ButtonRed"
+                android:text="انصراف" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/wait"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:id="@+id/waitP"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

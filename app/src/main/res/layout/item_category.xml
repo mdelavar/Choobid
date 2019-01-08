@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:orientation="vertical"
+
+        android:id="@+id/getCat"
+        android:layout_marginRight="6dp"
+        android:layout_marginLeft="6dp"
+        android:background="@drawable/orange_radius"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="6dp"
+
+            android:textSize="13sp"
+            android:id="@+id/catName"
+            />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+

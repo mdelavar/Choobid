@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context="com.rayanehsabz.choobid.Activities.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="راهنمای استفاده از اپلیکیشن چوبید"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/black"
+                />
+            <ImageView
+                android:layout_width="200dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/login_help"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="صفحه ثبت نام و ورود"
+                android:textColor="@color/black"
+                />
+
+
+
+            <ImageView
+                android:layout_width="200dp"
+
+                android:layout_marginTop="30dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/profile_help"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="بخش کاربری"
+                android:textColor="@color/black"
+                />
+
+
+            <ImageView
+                android:layout_width="200dp"
+
+                android:layout_marginTop="30dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/bid_help"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="صفحه حراجی"
+                android:textColor="@color/black"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="نحوه استفاده"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/useHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="راهنمای استفاده"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="1 - ثبت نام"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/registerHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="2- ورود به حساب کاربری و تکمیل اطلاعات"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/loginHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="3- توجه به زمان برگزاری حراجی ها در تالار حراجی"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/timeHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="4- تامین بید مورد نیاز برای شرکت در حراجی"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/buyBidHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="5- حضور در حراجی طبق زمان اعلام شده"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/enterBidHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="6- کلیک بر روی کلید پیشنهاد"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/clickBidHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="درصورتی که کاربر برنده حراجی باشد:"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/winnerHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="درصورتی که ترفند پرداخت ریالی کالای برنده شده فعال باشد:"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/payHelp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="درصورتی که کاربر برنده حراجی نباشد و درخواست خرید شگفت انگیز داشته باشد:"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/pay2Help"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="درصورتی که کاربر برنده حراجی نباشد و درخواست خرید شگفت انگیز نداشته باشد:"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/pay3Help"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:text="برای درک بهتر به مثال زیر توجه فرمایید :"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="@string/exHelp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

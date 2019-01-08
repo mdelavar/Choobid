@@ -1,0 +1,17 @@
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:background="#2a2a2a"
+    android:padding="7dp"
+    android:gravity="right">
+    
+				 <GridView
+				     android:id="@+id/cartoonsgv"
+				     android:layout_width="match_parent"
+				     android:layout_height="wrap_content"
+				     android:horizontalSpacing="2dp"
+				     android:numColumns="3"
+				     android:stretchMode="columnWidth"
+				     android:verticalSpacing="2dp" />
+
+ </RelativeLayout>

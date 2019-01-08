@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    tools:context="com.rayanehsabz.choobid.Fragments.NavigationDrawer">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:id="@+id/sd"
+        >
+
+        <TextView
+            android:id="@+id/productSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="15dp"
+            android:textSize="16sp"
+
+
+            />
+
+        <TextView
+            android:id="@+id/product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="تصاویر محصولات"
+            />
+
+
+        <TextView
+            android:id="@+id/avatarSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/productSize"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/avatarName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/product"
+            android:textColor="@color/black"
+            android:text="تصاویر آواتار ها"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/sd"
+
+        >
+
+        <Button
+            android:id="@+id/cleanB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="پاک کردن" />
+
+        <Button
+            android:id="@+id/cancelB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="بی خیال" />
+
+    </LinearLayout>
+</RelativeLayout>

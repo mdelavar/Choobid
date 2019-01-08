@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.rayanehsabz.choobid.Activities.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_marginTop="6dp"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center_vertical|right"
+                android:hint="ایمیل"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center_vertical|right"
+                android:hint="رمز عبور"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           >
+
+            <EditText
+                android:id="@+id/txtRePassword"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center_vertical|right"
+                android:hint="تکرار رمز عبور"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          >
+
+            <EditText
+                android:id="@+id/txtMobileNo"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center_vertical|right"
+                android:hint="شماره موبایل"
+                android:inputType="phone"
+                android:lines="1"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           >
+
+            <EditText
+                android:id="@+id/txtScreenName"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center_vertical|right"
+                android:hint="نام کاربری"
+                android:inputType="text"
+                android:lines="1"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/termText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:clickable="true"
+                android:text="@string/Terms"
+                android:textColor="@color/black"
+                android:textColorLink="@color/orange"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/checkTerm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/lgB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مرحله بعد"
+                android:theme="@style/ButtonOrange" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
