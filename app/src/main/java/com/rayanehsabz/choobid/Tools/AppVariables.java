@@ -52,7 +52,7 @@ import java.io.InputStreamReader;
 
 public class AppVariables {
 
-    private static String siteAddress = "yourDomain.etc";
+    private static String siteAddress = "http://choobid.com/";
     private static String socketAddress = "ws://yourDomain.etc";
     private static String appTypeId = "1";
     private static String serverAddress = "choobid-portlet/api/jsonws/account/";
@@ -110,6 +110,7 @@ public class AppVariables {
         HttpClient httpClient = new DefaultHttpClient();
         String credentials = "json%40birib%2Eir:json2";
 
+        Log.e("aa" , URL);
         HttpGet httpGet = new HttpGet(URL);
         //httpGet.addHeader("Authorization","Basic "+credentials);
 
